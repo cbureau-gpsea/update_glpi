@@ -53,13 +53,13 @@ After that, delete the GLPI folder :
 rm -Rf /var/www/html/glpi
 ```
 
-And install the lastest version of GLPI :
+And install the latest version of GLPI :
 ```bash
 cd /tmp
 
-wget https://github.com/glpi-project/glpi/releases/download/10.0.X/glpi-10.0.X.tgz #replace 10.0.X with the lastest version
+wget https://github.com/glpi-project/glpi/releases/download/10.0.X/glpi-10.0.X.tgz #replace 10.0.X with the latest version
 
-tar -xzvf glpi-10.0.X.tgz #replace 10.0.X with the lastest version
+tar -xzvf glpi-10.0.X.tgz #replace 10.0.X with the latest version
 ```
 
 Move the new folder of GLPI in */var/www/html* :
