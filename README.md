@@ -28,11 +28,11 @@ mysqldump -u root -p --databases [name_of_your_database] > /var/www/backup_glpi/
 
 And save the configuration files :
 ```bash
-cp -Rf /var/www/html/glpi/files /var/www/backup_glpi/
+cp -Rf /var/www/html/glpi/inc/downstream.php /var/www/backup_glpi/
+
+cp -Rf /var/www/html/glpi/local_define.php /var/www/backup_glpi/
 
 cp -Rf /var/www/html/glpi/plugins /var/www/backup_glpi/
-
-cp -Rf /var/www/html/glpi/config /var/www/backup_glpi/
 
 cp -Rf /var/www/html/glpi/marketplace /var/www/backup_glpi/
 
@@ -62,26 +62,39 @@ wget https://github.com/glpi-project/glpi/releases/download/10.0.X/glpi-10.0.X.t
 tar -xzvf glpi-10.0.X.tgz #replace 10.0.X with the latest version
 ```
 
-Move the new folder of GLPI in */var/www/html* :
+Move the new folder of GLPI in */var/www/html* and move configuration files in respective directory :
 ```bash
 mv glpi /var/www/html
+
+mv /var/www/html/glpi/config /etc/glpi
+
+mv /var/www/html/glpi/files /var/lib/glpi
+
+chown -R www-data:www-data /var/lib/glpi/files
+
+chown -R www-data:www-data /var/lib/glpi/config
 ```
 
 ## Reinject configuration
 
 Put the configuration files back into new GLPI :
 ```bash
-cp -Rf /var/www/backup_glpi/files /var/www/html/glpi
+
+cp -Rf /var/www/backup_glpi/downstream.php /var/www/html/glpi/inc/
+
+cp -Rf /var/www/backup_glpi/local_define.php /var/www/html/glpi 
 
 cp -Rf /var/www/backup_glpi/plugins /var/www/html/glpi 
-
-cp -Rf /var/www/backup_glpi/config  /var/www/html/glpi
 
 cp -Rf /var/www/backup_glpi/marketplace /var/www/html/glpi
 
 cp -Rf /var/www/backup_glpi/pics /var/www/html/glpi
 
 chown -R www-data:www-data /var/www/html/glpi/
+
+chown -R www-data:www-data /var/www/html/marketplace/
+
+chown -R www-data:www-data /var/www/html/plugin/
 ```
 
 ## Update database
