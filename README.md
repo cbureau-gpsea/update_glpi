@@ -30,8 +30,6 @@ And save the configuration files :
 ```bash
 cp -Rf /var/www/html/glpi/inc/downstream.php /var/www/backup_glpi/
 
-cp -Rf /var/www/html/glpi/local_define.php /var/www/backup_glpi/
-
 cp -Rf /var/www/html/glpi/plugins /var/www/backup_glpi/
 
 cp -Rf /var/www/html/glpi/marketplace /var/www/backup_glpi/
@@ -81,8 +79,6 @@ Put the configuration files back into new GLPI :
 ```bash
 
 cp -Rf /var/www/backup_glpi/downstream.php /var/www/html/glpi/inc/
-
-cp -Rf /var/www/backup_glpi/local_define.php /var/www/html/glpi 
 
 cp -Rf /var/www/backup_glpi/plugins /var/www/html/glpi 
 
