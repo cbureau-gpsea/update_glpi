@@ -84,9 +84,9 @@ cp -Rf /var/www/backup_glpi/pics /var/www/html/glpi
 
 chown -R www-data:www-data /var/www/html/glpi/
 
-chown -R www-data:www-data /var/www/html/marketplace/
+chown -R www-data:www-data /var/www/html/glpi/marketplace/
 
-chown -R www-data:www-data /var/www/html/plugin/
+chown -R www-data:www-data /var/www/html/glpi/plugin/
 ```
 
 ## Update database
