@@ -60,17 +60,13 @@ wget https://github.com/glpi-project/glpi/releases/download/10.0.X/glpi-10.0.X.t
 tar -xzvf glpi-10.0.X.tgz #replace 10.0.X with the latest version
 ```
 
-Move the new folder of GLPI in */var/www/html* and move configuration files in respective directory :
+Move the new folder of GLPI in */var/www/html* and remove configuration files in respective directory, if your previous configuration was outside the public folder (/etc/glpi/config and /var/lib/glpi/files) :
 ```bash
 mv glpi /var/www/html
 
-mv /var/www/html/glpi/config /etc/glpi
+rm -Rf /var/www/html/glpi/config
 
-mv /var/www/html/glpi/files /var/lib/glpi
-
-chown -R www-data:www-data /var/lib/glpi/files
-
-chown -R www-data:www-data /var/lib/glpi/config
+rm -Rf /var/www/html/glpi/files /var/lib/glpi
 ```
 
 ## Reinject configuration
