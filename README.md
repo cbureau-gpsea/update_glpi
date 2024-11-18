@@ -86,7 +86,7 @@ chown -R www-data:www-data /var/www/html/glpi/
 
 chown -R www-data:www-data /var/www/html/glpi/marketplace/
 
-chown -R www-data:www-data /var/www/html/glpi/plugin/
+chown -R www-data:www-data /var/www/html/glpi/plugins/
 ```
 
 ## Update database
