@@ -35,6 +35,10 @@ cp -Rf /var/www/html/glpi/plugins /var/www/backup_glpi/
 cp -Rf /var/www/html/glpi/marketplace /var/www/backup_glpi/
 
 cp -Rf /var/www/html/glpi/pics /var/www/backup_glpi/
+
+cp -Rf /etc/glpi/config /var/www/backup_glpi/
+
+cp -Rf /var/lib/glpi/files /var/www/backup_glpi/
 ```
 
 ## Download GLPI
@@ -60,13 +64,9 @@ wget https://github.com/glpi-project/glpi/releases/download/10.0.X/glpi-10.0.X.t
 tar -xzvf glpi-10.0.X.tgz #replace 10.0.X with the latest version
 ```
 
-Move the new folder of GLPI in */var/www/html* and remove configuration files in respective directory, if your previous configuration was outside the public folder (/etc/glpi/config and /var/lib/glpi/files) :
+Move the new folder of GLPI in */var/www/html* and remove configuration files in respective directory :
 ```bash
 mv glpi /var/www/html
-
-rm -Rf /var/www/html/glpi/config
-
-rm -Rf /var/www/html/glpi/files /var/lib/glpi
 ```
 
 ## Reinject configuration
@@ -74,7 +74,9 @@ rm -Rf /var/www/html/glpi/files /var/lib/glpi
 Put the configuration files back into new GLPI :
 ```bash
 
-cp -Rf /var/www/backup_glpi/downstream.php /var/www/html/glpi/inc/
+cp -Rf /var/www/backup_glpi/config /var/www/html/glpi
+
+cp -Rf /var/www/backup_glpi/files /var/www/html/glpi
 
 cp -Rf /var/www/backup_glpi/plugins /var/www/html/glpi 
 
@@ -83,10 +85,6 @@ cp -Rf /var/www/backup_glpi/marketplace /var/www/html/glpi
 cp -Rf /var/www/backup_glpi/pics /var/www/html/glpi
 
 chown -R www-data:www-data /var/www/html/glpi/
-
-chown -R www-data:www-data /var/www/html/glpi/marketplace/
-
-chown -R www-data:www-data /var/www/html/glpi/plugins/
 ```
 
 ## Update database
@@ -98,6 +96,28 @@ cd /var/www/html/glpi
 php bin/console glpi:system:check_requirements
 
 php bin/console db:update
+
+php bin/console database:check_schema_integrity
+```
+
+Delete file install.php
+```bash
+rm /var/www/html/glpi/install/install.php
+```
+
+And move configuration folders
+```bash
+mv config /etc/glpi
+
+mv files /var/lib/glpi
+
+cp -Rf /var/www/backup_glpi/downstream.php /var/www/html/glpi/inc/
+
+chown -R www-data:www-data /etc/glpi
+
+chown -R www-data:www-data /var/lib/glpi
+
+chown -R www-data:www-data /var/www/html/glpi
 ```
 
 ## Check your plugins
