@@ -78,13 +78,13 @@ cp -Rf /var/www/backup_glpi/config /var/www/html/glpi
 
 cp -Rf /var/www/backup_glpi/files /var/www/html/glpi
 
-cp -Rf /var/www/backup_glpi/plugins /var/www/html/glpi 
+cp -Rf /var/www/backup_glpi/plugins /var/www/html/glpi
 
 cp -Rf /var/www/backup_glpi/marketplace /var/www/html/glpi
 
 cp -Rf /var/www/backup_glpi/pics /var/www/html/glpi
 
-chown -R www-data:www-data /var/www/html/glpi/
+chown -R www-data:www-data /var/www/html/glpi
 ```
 
 ## Update database
