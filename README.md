@@ -100,7 +100,7 @@ php bin/console db:update
 php bin/console database:check_schema_integrity
 ```
 
-Delete file install.php
+And go on your website to follow instructions. After you can delete file install.php
 ```bash
 rm /var/www/html/glpi/install/install.php
 ```
