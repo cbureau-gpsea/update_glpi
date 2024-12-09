@@ -84,7 +84,7 @@ cp -Rf /var/www/backup_glpi/marketplace /var/www/html/glpi
 
 cp -Rf /var/www/backup_glpi/pics /var/www/html/glpi
 
-chown -R www-data:www-data /var/www/html/glpi
+chown -R www-data /var/www/html/glpi
 ```
 
 ## Update database
@@ -113,11 +113,11 @@ mv files /var/lib/glpi
 
 cp -Rf /var/www/backup_glpi/downstream.php /var/www/html/glpi/inc/
 
-chown -R www-data:www-data /etc/glpi
+chown -R www-data /etc/glpi
 
-chown -R www-data:www-data /var/lib/glpi
+chown -R www-data /var/lib/glpi
 
-chown -R www-data:www-data /var/www/html/glpi
+chown -R www-data /var/www/html/glpi
 ```
 
 ## Check your plugins
